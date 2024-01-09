@@ -3,9 +3,13 @@ import "./OrderForm.css";
 import { useState,useEffect } from 'react';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 import axios from "axios";
-import { Link } from 'react-router-dom'
+import { productData } from "../Datas/ProductData";
+import Product from "../Components/Product";
+
+
 
 export default function OrderForm(props) {
+
   const { handleSubmit, handleOrder } = props;
   const initialData = {
     title: "",
@@ -47,7 +51,7 @@ export default function OrderForm(props) {
 
   const validateDough = (value) => {
     const validDoughOptions = ['Ince Hamur', 'Orta Hamur', 'Kalin Hamur'];
-    return validDoughOptions.includes(value) || 'Bir pizza hamur kalınlığı seçmelisiniz.';
+    return validDoughOptions.includes(value) || 'Bir pizza hamur kalinliği seçmelisiniz.';
   };
 
   const validateSize = (value) => {
@@ -61,7 +65,8 @@ export default function OrderForm(props) {
   useEffect(() => {
     const newFormEntries = { ...formData };
     newFormEntries.extraIngredientPrice = extraIngredientPrice;
-    newFormEntries.totalPrice = // ... calculate total price
+    newFormEntries.totalPrice = 
+    newFormEntries.counter * productData[0].price + extraIngredientPrice;
     setFormData(newFormEntries);
   }, [extraIngredientPrice, formData.counter]);
 
@@ -108,7 +113,7 @@ return errors;
         ? formData.extraIngredient.filter((item) => item !== name)
         : [...formData.extraIngredient, name];
   
-        if (selectedIngredients.length >= 4 && selectedIngredients.length <= 10) {
+        if ( selectedIngredients.length <= 10) {
         setFormData((prevData) => ({
           ...prevData,
           extraIngredient: selectedIngredients,
@@ -117,7 +122,7 @@ return errors;
           value ? prevPrice + 5 : prevPrice - 5
         );
       } else {
-        console.log("En fazla 10 malzeme seçebilirsiniz.");
+        console.log("En fazla 10 malzeme secebilirsiniz.");
       }
     } else {
       setFormData((prevData) => ({ ...prevData, [name]: value }));
@@ -156,7 +161,7 @@ return errors;
 
   return (
     <div className="main-container">
-    
+    <Product />
       <form onSubmit={handlerSubmit}>
         <div className="order-form">
           <div className="form-container">
@@ -291,11 +296,11 @@ return errors;
           </div>
         </div>
         <div className="submit-button">
-        <Link to="/success">
+       
           <button className="order-button" type="submit" disabled={!isValid}>
             Siparis Ver
           </button>
-          </Link>
+         
         </div>
       </form>
     </div>
