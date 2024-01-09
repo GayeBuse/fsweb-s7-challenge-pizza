@@ -1,7 +1,7 @@
 .success {
     display: flex;
     flex-direction: column;
-    background-color: red;
+    background-color: rgba(206, 40, 41, 1);
     height: 100vh;
     color: white;
 

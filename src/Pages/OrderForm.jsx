@@ -3,6 +3,7 @@ import "./OrderForm.css";
 import { useState,useEffect } from 'react';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 import axios from "axios";
+import { Link } from 'react-router-dom'
 
 export default function OrderForm(props) {
   const { handleSubmit, handleOrder } = props;
@@ -290,9 +291,11 @@ return errors;
           </div>
         </div>
         <div className="submit-button">
+        <Link to="/success">
           <button className="order-button" type="submit" disabled={!isValid}>
             Siparis Ver
           </button>
+          </Link>
         </div>
       </form>
     </div>
