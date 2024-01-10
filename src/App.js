@@ -12,17 +12,18 @@ const App = () => {
   const [order, setOrder] = useState([]);
 
   const handleOrder = (order) => {
-    setOrder(order);
+    setOrder(order); //dataya veri yolluyoruz
   };
 
   useEffect(() => {
-    console.log("order", order);
-  }, [order]);
+  console.log("order",order)
+  }, [order]); // her sipariş değiştiğinde ekrana yazdır 
 
   function handleSubmit(formData) {
-    console.log(formData);
-  }
+      //datayı her sayfada kullanabilmek için
 
+  }
+// 
   return (
     <div className="app">
       <Switch>

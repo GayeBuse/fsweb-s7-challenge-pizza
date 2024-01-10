@@ -10,7 +10,7 @@ import Product from "../Components/Product";
 
 export default function OrderForm(props) {
 
-  const { handleSubmit, handleOrder } = props;
+  const { handleSubmit, handleOrder } = props; //apiden alıyrum succestende çekebilirim 2. aşama için hazırlık
   const initialData = {
     title: "",
     price: 0,
@@ -23,6 +23,7 @@ export default function OrderForm(props) {
     orderNotes: "",
     totalPrice: 0,
     counter: 1,
+    
   };
 
   const extraIngredients = [
@@ -148,7 +149,6 @@ return errors;
       .post("https://reqres.in/api/users", formData)
       .then((res) => {
         handleOrder(res.data);
-        console.log("Sipariş Özeti:", formData);
         history.push("/success");
 
       })
@@ -165,7 +165,7 @@ return errors;
           <div className="form-container">
             <div className="product-inches">
               <h3>
-                Boyut seciniz<span>*</span>
+                Boyut Sec <span>*</span>
               </h3>
               <div className="">
                 <input
