@@ -155,8 +155,6 @@ return errors;
       .catch((err) => {
         console.error(err.response.message);
       });
-
-   
   };
 
   return (
@@ -165,7 +163,7 @@ return errors;
       <form onSubmit={handlerSubmit}>
         <div className="order-form">
           <div className="form-container">
-            <div className="product-size p-color">
+            <div className="product-inches">
               <h3>
                 Boyut seciniz<span>*</span>
               </h3>
@@ -210,7 +208,7 @@ return errors;
               </div>
               {errors.size && <p className="error-message">{errors.size}</p>}
             </div>
-            <div className="dough-size p-color">
+            <div className="dough-size dimension">
               <h3>
                 Hamur Sec <span>*</span>
               </h3>
@@ -234,7 +232,7 @@ return errors;
         <div className="ek-malzemeler">
           <h3>Ek Malzemeler</h3>
           <p>En Fazla 10 malzeme secebilirsiniz. 5₺</p>
-          <div className="malzeme-wrapper">
+          <div className="malzeme-selection">
             {extraIngredients.map((malz, i) => (
               <div className="malzeme" key={i}>
                 <input
@@ -269,28 +267,28 @@ return errors;
           />
         </div>
         <div className="cizgi"></div>
-        <div className="flex mt-2 width-10 justify-bet wrap">
-          <div className="inflex ">
+        <div className="common counter  wrap">
+          <div className="counters ">
             <button className="dec" onClick={handleDecreasment}>
               -
             </button>
-            <div className="width-height-3 but">{formData.counter}</div>
+            <div className="touch ">{formData.counter}</div>
             <button className="inc" onClick={handleIncreasment}>
               +
             </button>
           </div>
-          <div className="inflex column border-g gap-1 total-screen">
+          <div className="counters column border ">
             <h3>Siparis Toplami</h3>
-            <div className="flex justify-bet total">
+            <div className="common buton total">
               <p>Secimler</p>
               <p>{extraIngredientPrice}₺</p>
             </div>
-            <div className="flex justify-bet total">
+            <div className="common buton total">
               <p>
-                <p>Toplam</p>
+                <span>Toplam</span>
               </p>
               <p>
-                <p>{formData.totalPrice}₺</p>
+                <span>{formData.totalPrice}₺</span>
               </p>
             </div>
           </div>

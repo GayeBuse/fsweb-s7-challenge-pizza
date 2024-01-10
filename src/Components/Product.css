@@ -19,13 +19,15 @@
 
 #rate {
     margin-left: 15rem;
+    margin-right:5rem;
 }
 
 #price {
     font-size: 1.5rem;
     color: black;
+    
 }
 
-.product-container span {
+.product-container p {
     margin: auto 0;
 }

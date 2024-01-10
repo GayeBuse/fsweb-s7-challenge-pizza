@@ -9,11 +9,11 @@ const Product = () => {
         <div className="product-container" key={i}>
           <h3>{urun.title}</h3>
           <div className="product-props">
-            <span id="price">
+            <p id="price">
               <b>{urun.price}₺</b>
-            </span>
-            <span id="rate">{urun.rate}</span>
-            <span>({urun.comment})</span>
+            </p>
+            <p id="rate">{urun.rate}</p>
+            <p>({urun.comment})</p>
           </div>
           <p>{urun.description}</p>
         </div>
