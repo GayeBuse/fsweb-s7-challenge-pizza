@@ -7,4 +7,5 @@ export const productData = [
       rate: "4.9",
       comment: "200",
     },
+
   ];

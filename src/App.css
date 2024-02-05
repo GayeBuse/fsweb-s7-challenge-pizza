@@ -27,12 +27,11 @@
 .App-link {
   color: #61dafb;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.footer{
+  background-color: #333; /* Footer arka plan rengi */
+  color: #fff; /* Yazı rengi */
+  padding: 20px; /* İçerikten kenarlara iç dolgu (padding) */
+  text-align: center; /* Yazıların ortalanması */
+  height: 100px; /* Footer yüksekliği */
+  width: 100%; /* Footer genişliği (sayfanın tamamını kaplaması için) */
 }

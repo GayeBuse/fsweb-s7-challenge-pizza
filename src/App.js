@@ -7,23 +7,25 @@ import { Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import Success from "./Pages/Success";
 import Header from "./Layout/Header";
+import { useHistory } from "react-router-dom";
 
 const App = () => {
   const [order, setOrder] = useState([]);
+  const history = useHistory();
 
   const handleOrder = (order) => {
     setOrder(order); //dataya veri yolluyoruz
+    history.push("/success");
   };
 
   useEffect(() => {
-  console.log("order",order)
-  }, [order]); // her sipariş değiştiğinde ekrana yazdır 
+    console.log("order", order);
+  }, [order]); // her sipariş değiştiğinde ekrana yazdır
 
   function handleSubmit(formData) {
-      //datayı her sayfada kullanabilmek için
-
+    //datayı her sayfada kullanabilmek için
   }
-// 
+  //
   return (
     <div className="app">
       <Switch>
@@ -31,11 +33,11 @@ const App = () => {
           <Home />
         </Route>
         <Route exact path="/pizza">
-        <Header />
+          <Header />
           <OrderForm handleOrder={handleOrder} handleSubmit={handleSubmit} />
         </Route>
         <Route exact path="/success">
-          <Success />
+          <Success order={order} />
         </Route>
       </Switch>
     </div>

@@ -32,3 +32,22 @@
     font-weight: 400;
     cursor: pointer;
 }
+.container-product{
+    background-color: rgba(250, 247, 242, 1);
+
+}
+.alt{
+    
+    background-color: rgba(26, 26, 26, 1);
+    color:white
+}
+
+
+.baslık{
+    margin-left: 2rem;
+    font-size: 50px;
+    text-align: left;
+}
+.iletisim{
+    margin-left: 2rem;
+}

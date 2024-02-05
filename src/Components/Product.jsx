@@ -23,3 +23,4 @@ const Product = () => {
 };
 
 export default Product;
+//Dizideki her öğe için ( ), "product-container" sınıfına ve benzersiz bir anahtara ( ) sahip urunbir öğe oluşturur

@@ -17,6 +17,9 @@
 .text {
     font-size: 5rem;
     text-align: center;
-    margin: 10rem 0;
+   
     line-height: 1rem;
+}
+.orderozet{
+    margin: 2rem 2rem 2rem 2rem;
 }
