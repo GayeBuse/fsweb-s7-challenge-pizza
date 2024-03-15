@@ -1,53 +1,179 @@
+.ana {
+  width: 100%;
+  background-color: #f5f5dc;
+}
+.sag {
+  display: flex;
+  flex-direction: column;
+}
+.menu1 {
+  display: flex;
+  justify-content: center; /* İçeriği yatayda merkezle */
+  align-items: center; /* İçeriği dikeyde merkezle */
+  gap: 5%;
+  padding-left: 15rem;
+}
+.npm {
+  border-radius: 1.2rem;
+  width: 80%;
+}
+.card-overlay {
+  position: relative;
+  top: -18rem; /* Resmin üst kısmına konumlandırıyoruz */
+  left: 10rem; /* Resmin sol kısmına konumlandırıyoruz */
+  transform: translate(-50%, -50%); /* Yatay ve dikey olarak merkezlemek için */
+  text-align: center; /* Metni merkezlemek için */
+  /* Diğer içeriklerin önüne geçmesini sağlar */
+  color: white; /* Metin rengi */
+}
+
+.absoulete {
+  border-radius: 1.2rem;
+  width: 600px;
+}
+.or {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 20px;
+}
+.overlay {
+  position: relative;
+  top: -8rem; /* Resmin üst kısmına konumlandırıyoruz */
+  left: 10rem; /* Resmin sol kısmına konumlandırıyoruz */
+  transform: translate(-520%, 80%); /* Yatay ve dikey olarak merkezlemek için */
+  text-align: center; /* Metni merkezlemek için */
+  z-index: 10; /* Diğer içeriklerin önüne geçmesini sağlar */
+  color: white; /* Metin rengi */
+}
+.menuler {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10rem;
+  padding-top: 2rem;
+}
+.menuu {
+  display: flex;
+  justify-content: center;
+}
+
+.ar {
+  background-color: #fdc913;
+  border-radius: 2rem;
+}
+.cardtext {
+  display: flex;
+  justify-content: space-around;
+}
+.k {
+  background-color: #fdc913;
+  border-radius: 2rem;
+  width: 20rem;
+}
+.a {
+  background-color: #fdc913;
+  border-radius: 2rem;
+  width: 20rem;
+}
+.baslık {
+  display: flex;
+  gap: 5rem;
+  justify-content: space-between;
+}
+.paket {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* İçeriği yatayda merkezle */
+  align-items: center;
+}
+
+.cook {
+  position: relative;
+  top: -8rem; /* Resmin üst kısmına konumlandırıyoruz */
+  left: 10rem; /* Resmin sol kısmına konumlandırıyoruz */
+  transform: translate(-50%, -50%); /* Yatay ve dikey olarak merkezlemek için */
+  text-align: center; /* Metni merkezlemek için */
+  z-index: 10; /* Diğer içeriklerin önüne geçmesini sağlar */
+  color: black; /* Metin rengi */
+}
+
+.hack {
+  border-radius: 1.2rem;
+  width: 80%;
+}
+.ramen {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
 .home-page {
-    background-image: url("../Assets/mvp-banner.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    color: white;
+  background-image: url("../Assets/mvp-banner.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: white;
 }
 
 .home-page h1 {
-    margin-top: 10rem;
-    font-size: 2.5rem;
-    font-family: 'Londrina Solid', cursive;
+  margin-top: 10rem;
+  font-size: 2.5rem;
+  font-family: "Londrina Solid", cursive;
 }
-
+.altbaslık {
+  display: flex;
+  gap: 5rem;
+  justify-content: center;
+}
 .home-text {
-    text-align: center;
-    font-size: 3rem;
-    padding: 2rem;
-    line-height: 1rem;
-    
+  text-align: center;
+  font-size: 3rem;
+  padding: 2rem;
+  line-height: 1rem;
+}
+.home-text button:hover {
+  font-size: 20px; /* Butonun boyutunu büyüt */
+  background-color: #ff0000; /* Arkaplan rengini değiştir */
+  color: #ffffff; /* Metin rengini değiştir */
 }
 
 .home-text button {
-    padding: 1rem 4rem;
-    background-color: #FDC913;
-    border: none;
-    border-radius: 2rem;
-    font-size: 1rem;
-    font-weight: 400;
-    cursor: pointer;
+  padding: 1rem 4rem;
+  background-color: #fdc913;
+  border: none;
+  border-radius: 2rem;
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
 }
-.container-product{
-    background-color: rgba(250, 247, 242, 1);
-
+.container-product {
+  background-color: rgba(250, 247, 242, 1);
 }
-.alt{
-    
-    background-color: rgba(26, 26, 26, 1);
-    color:white
+.alt {
+  background-color: rgba(26, 26, 26, 1);
+  color: white;
 }
 
-
-.baslık{
-    margin-left: 2rem;
-    font-size: 50px;
-    text-align: left;
+.baslık {
+  margin-left: 2rem;
+  font-size: 50px;
+  text-align: left;
 }
-.iletisim{
-    margin-left: 2rem;
+.iletisim {
+  margin-left: 2rem;
+}
+.buttton {
+  background-color: #fdc913;
+  border: none;
+  border-radius: 2rem;
+  font-size: 1rem;
+  padding: 1rem;
+  cursor: pointer;
+}
+.buttton:hover {
+  font-size: 20px; /* Butonun boyutunu büyüt */
+  background-color: #ff0000; /* Arkaplan rengini değiştir */
+  color: #ffffff; /* Metin rengini değiştir */
 }
