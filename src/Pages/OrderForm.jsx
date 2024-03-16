@@ -1,15 +1,12 @@
-import React from 'react';
+import React from "react";
 import "./OrderForm.css";
-import { useState,useEffect } from 'react';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom';
+import { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom";
 import axios from "axios";
 import { productData } from "../Datas/ProductData";
 import Product from "../Components/Product";
 
-
-
 export default function OrderForm(props) {
-
   const { handleSubmit, handleOrder } = props; //apiden alıyrum succestende çekebilirim 2. aşama için hazırlık
   const initialData = {
     title: "",
@@ -23,7 +20,6 @@ export default function OrderForm(props) {
     orderNotes: "",
     totalPrice: 0,
     counter: 1,
-    
   };
 
   const extraIngredients = [
@@ -47,46 +43,47 @@ export default function OrderForm(props) {
   const [isValid, setIsValid] = useState(false);
   const [extraIngredientPrice, setExtraIngredientPrice] = useState(0);
   const [errors, setErrors] = useState({ dough: "", extraIngredient: "" });
-;
   const history = useHistory();
 
   const validateDough = (value) => {
-    const validDoughOptions = ['Ince Hamur', 'Orta Hamur', 'Kalin Hamur'];
-    return validDoughOptions.includes(value) || 'Bir pizza hamur kalinliği seçmelisiniz.';
+    const validDoughOptions = ["Ince Hamur", "Orta Hamur", "Kalin Hamur"];
+    return (
+      validDoughOptions.includes(value) ||
+      "Bir pizza hamur kalinliği seçmelisiniz."
+    );
   };
 
   const validateSize = (value) => {
-    const validSizeOptions = ['Kucuk', 'Orta', 'Buyuk'];
-    return validSizeOptions.includes(value) || 'Pizza boyutunu seciniz';
+    const validSizeOptions = ["Kucuk", "Orta", "Buyuk"];
+    return validSizeOptions.includes(value) || "Pizza boyutunu seciniz";
   };
 
   const validateExtraIngredients = (value) => {
-    return value.length <= 10 || 'En fazla 10 malzeme secebilirsiniz.';
+    return value.length <= 10 || "En fazla 10 malzeme secebilirsiniz.";
   };
   useEffect(() => {
     const newFormEntries = { ...formData };
     newFormEntries.extraIngredientPrice = extraIngredientPrice;
-    newFormEntries.totalPrice = 
-    newFormEntries.counter * productData[0].price + extraIngredientPrice;
+    newFormEntries.totalPrice =
+      newFormEntries.counter * productData[0].price + extraIngredientPrice;
     setFormData(newFormEntries);
   }, [extraIngredientPrice, formData.counter]);
-
   const validateForm = () => {
     const errors = {};
 
-  if (!validateDough(formData.dough)) {
-    errors.dough = 'Bir pizza hamur kalınlığı seçmelisiniz.';
-}
-if (!validateSize(formData.size)) {
-  errors.size = 'Pizza boyutunu seciniz';
-}
-if (!validateExtraIngredients(formData.extraIngredient)) {
-  errors.extraIngredient = 'En fazla 10 malzeme secebilirsiniz.';
-}
-const isValidForm = Object.keys(errors).length === 0;
-setIsValid(isValidForm); 
-return errors;
-  }
+    if (!validateDough(formData.dough)) {
+      errors.dough = "Bir pizza hamur kalınlığı seçmelisiniz.";
+    }
+    if (!validateSize(formData.size)) {
+      errors.size = "Pizza boyutunu seçmelisiniz.";
+    }
+    if (!validateExtraIngredients(formData.extraIngredient)) {
+      errors.extraIngredient = "En fazla 10 malzeme seçebilirsiniz.";
+    }
+
+    setIsValid(Object.keys(errors).length === 0);
+    return errors;
+  };
 
   const handleIncreasment = (event) => {
     event.preventDefault();
@@ -105,16 +102,19 @@ return errors;
 
   const handleChange = (event) => {
     const name = event.target.name;
-    const value = event.target.type === "checkbox" ? event.target.checked : event.target.value;
-  
-    setErrors((prevErrors) => ({ ...prevErrors, name: "" }));
-  
+    const value =
+      event.target.type === "checkbox"
+        ? event.target.checked
+        : event.target.value;
+
+    setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
+
     if (event.target.type === "checkbox") {
       const selectedIngredients = formData.extraIngredient.includes(name)
         ? formData.extraIngredient.filter((item) => item !== name)
         : [...formData.extraIngredient, name];
-  
-        if ( selectedIngredients.length <= 10) {
+
+      if (selectedIngredients.length <= 10) {
         setFormData((prevData) => ({
           ...prevData,
           extraIngredient: selectedIngredients,
@@ -123,7 +123,10 @@ return errors;
           value ? prevPrice + 5 : prevPrice - 5
         );
       } else {
-        console.log("En fazla 10 malzeme secebilirsiniz.");
+        setErrors((prevErrors) => ({
+          ...prevErrors,
+          extraIngredient: "En fazla 10 malzeme seçebilirsiniz.",
+        }));
       }
     } else {
       setFormData((prevData) => ({ ...prevData, [name]: value }));
@@ -132,13 +135,12 @@ return errors;
         setErrors((prevErrors) => ({ ...prevErrors, ...validationErrors }));
       }
     }
-  
+
     const validationErrors = validateForm();
     const isValidForm = Object.keys(validationErrors).length === 0;
     setIsValid(isValidForm);
   };
-    
-    
+
   const handlerSubmit = (event) => {
     event.preventDefault();
 
@@ -150,16 +152,18 @@ return errors;
       .then((res) => {
         handleOrder(res.data);
         history.push("/success");
-
       })
       .catch((err) => {
         console.error(err.response.message);
       });
   };
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="main-container">
-    <Product />
+      <img className="pızzaa" src="menu/abspizza.png" />
+      <Product />
       <form onSubmit={handlerSubmit}>
         <div className="order-form">
           <div className="form-container">
@@ -241,7 +245,6 @@ return errors;
                   name={malz}
                   checked={formData.extraIngredient.includes(malz)}
                   onChange={handleChange}
-                
                 />
                 <label className="size-margin" htmlFor={`ingredient-${i}`}>
                   {malz}
@@ -294,13 +297,11 @@ return errors;
           </div>
         </div>
         <div className="submit-button">
-       
           <button className="order-button" type="submit" disabled={!isValid}>
             Siparis Ver
           </button>
-         
         </div>
       </form>
     </div>
   );
-};
+}
