@@ -51,15 +51,31 @@
   justify-content: center;
   gap: 10rem;
   padding-top: 2rem;
+  padding-bottom: 6rem;
 }
 .menuu {
   display: flex;
   justify-content: center;
 }
-
+.satisfy-regular {
+  font-family: "Satisfy", cursive;
+  font-weight: 800;
+  font-style: normal;
+  color: #ce2829;
+  font-size: 20px;
+}
 .ar {
   background-color: #fdc913;
   border-radius: 2rem;
+}
+.ar:hover {
+  border: 4px solid #ce2829; /* Mouse hover durumunda kenarlık oluştur */
+}
+.k:hover {
+  border: 4px solid #ce2829; /* Mouse hover durumunda kenarlık oluştur */
+}
+.a:hover {
+  border: 4px solid #ce2829; /* Mouse hover durumunda kenarlık oluştur */
 }
 .cardtext {
   display: flex;
@@ -126,6 +142,7 @@
   display: flex;
   gap: 5rem;
   justify-content: center;
+  padding-top: 2rem;
 }
 .home-text {
   text-align: center;

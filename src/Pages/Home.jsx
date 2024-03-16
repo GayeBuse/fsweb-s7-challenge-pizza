@@ -100,8 +100,10 @@ export default function Home(productData) {
   */}
           <div className="">
             <div className="paket">
-              <p className="">en çok paketlenen menüler</p>
-              <p>Acıktıran Kodlara Doyuran Lezzetler</p>
+              <p className="satisfy-regular">en çok paketlenen menüler</p>
+              <p className="satisfy-regular">
+                Acıktıran Kodlara Doyuran Lezzetler
+              </p>
             </div>
             <div className="ramen">
               <img src="icons/1.png.png " alt="" />
@@ -132,6 +134,9 @@ export default function Home(productData) {
                   <CardText>(200)</CardText>
                   <CardText>60₺</CardText>
                 </div>
+                <Link to="/pizza">
+                  <Button className="buttton">SİPARİŞ VER</Button>
+                </Link>
               </CardBody>
             </div>
             <div className="k">
@@ -145,6 +150,9 @@ export default function Home(productData) {
                   <CardText>(928)</CardText>
                   <CardText>85₺</CardText>
                 </div>
+                <Link to="/pizza">
+                  <Button className="buttton">SİPARİŞ VER</Button>
+                </Link>
               </CardBody>
             </div>
             <div className="a">
@@ -158,6 +166,9 @@ export default function Home(productData) {
                   <CardText>(462)</CardText>
                   <CardText>75₺</CardText>
                 </div>
+                <Link to="/pizza">
+                  <Button className="buttton">SİPARİŞ VER</Button>
+                </Link>
               </CardBody>
             </div>
           </div>
